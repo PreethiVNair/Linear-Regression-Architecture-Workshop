@@ -1,0 +1,2 @@
+timestamp,feature,test_size,learning_rate,iterations,rmse,mae,r2
+2026-09-27 16:30:14,MedInc,0.2,0.01,1000,0.72,0.54,0.58
