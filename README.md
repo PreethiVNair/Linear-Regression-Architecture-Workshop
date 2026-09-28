@@ -442,7 +442,30 @@ To reproduce the experiment:
 
 Using the same dataset and configuration should produce consistent results.
 
----
+
+
+## Future Application to Robot Predictive Maintenance
+
+The linear regression approach used in this workshop can later be applied to the robot streaming data in Practical Lab 1.
+
+For predictive maintenance, historical robot sensor data can be used to learn the expected behaviour of the machine. Linear regression can predict an expected sensor value, such as electrical current, based on the available robot data.
+
+When new robot data is streamed, the actual current value can be compared with the value predicted by the regression model.
+
+The planned workflow is:
+
+1. Collect historical robot sensor data.
+2. Clean and prepare the sensor data.
+3. Select the required features and target value.
+4. Train a linear regression model using historical data.
+5. Use the model to predict the expected current value.
+6. Compare the actual current with the predicted current.
+7. Calculate the difference between the actual and predicted values.
+8. Use defined thresholds to generate alerts or errors when the difference is unusually large.
+
+This approach can help identify unusual changes in robot current that may indicate a possible machine problem before a failure occurs.
+
+The modular architecture developed in this workshop can also be reused for Practical Lab 1 by adapting the data loading, preprocessing, model training, evaluation, and configuration components for streaming robot data.---
 
 ## Conclusion
 

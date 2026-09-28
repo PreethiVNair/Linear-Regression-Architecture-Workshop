@@ -1,6 +1,7 @@
 import pandas as pd
 import sqlite3
 import yaml
+import requests
 
 
 def load_csv(file_path):
@@ -25,6 +26,16 @@ def load_config(config_path):
         config = yaml.safe_load(file)
 
     return config
+
+def load_api(api_url):
+    """Load data from a web API."""
+
+    response = requests.get(api_url, timeout=30)
+    response.raise_for_status()
+
+    data = response.json()
+
+    return data
 
 
 if __name__ == "__main__":
