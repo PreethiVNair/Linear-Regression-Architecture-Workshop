@@ -2,7 +2,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 
 
-def prepare_data(data, feature, target, test_size=0.2):
+def prepare_data(data, feature, target, test_size=0.2, random_state=42):
 
     # Remove rows with missing feature or target
     clean_data = data.dropna(
@@ -20,7 +20,7 @@ def prepare_data(data, feature, target, test_size=0.2):
         X,
         y,
         test_size=test_size,
-        random_state=42
+        random_state=random_state
     )
 
     # Standardize the input feature
