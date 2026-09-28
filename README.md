@@ -57,7 +57,7 @@ Linear-Regression-Architecture-Workshop/
 │   ├── experiment_tracker.py
 │   └── run_experiment.py
 │
-├── LinearRegression.ipynb
+├── linear_regression.ipynb
 ├── requirements.txt
 └── README.md
 ```
@@ -398,7 +398,7 @@ The project should be run from the root project directory.
 Open:
 
 ```text
-LinearRegression.ipynb
+linear_regression.ipynb
 ```
 
 Run the notebook cells in order to view the data exploration and linear regression development.
