@@ -1,0 +1,16 @@
+data:
+  csv_path: "data/raw/california_housing.csv"
+  database_path: "data/database/housing.db"
+
+model:
+  selected_feature: "MedInc"
+  target: "MedHouseVal"
+
+training:
+  learning_rate: 0.01
+  iterations: 1000
+  test_size: 0.2
+  random_state: 42
+
+experiments:
+  results_path: "experiments/results.csv"

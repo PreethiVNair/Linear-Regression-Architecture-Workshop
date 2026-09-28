@@ -1,66 +1,49 @@
-from pathlib import Path
-from datetime import datetime
+import os
 import pandas as pd
+from datetime import datetime
 
 
 def save_experiment(
+    results_path,
+    model_name,
     feature,
-    test_size,
     learning_rate,
     iterations,
-    rmse,
-    mae,
-    r2
+    test_size,
+    metrics
 ):
-    """Save the results of a linear regression experiment."""
+    """Save the results of a machine learning experiment."""
 
-    results_path = Path("experiments/results.csv")
-
-    # Create experiments folder if it does not exist
-    results_path.parent.mkdir(parents=True, exist_ok=True)
-
-    # Information from the current experiment
     experiment = {
-        "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+        "date": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+        "model": model_name,
         "feature": feature,
-        "test_size": test_size,
         "learning_rate": learning_rate,
         "iterations": iterations,
-        "rmse": rmse,
-        "mae": mae,
-        "r2": r2
+        "test_size": test_size,
+        "MSE": metrics["MSE"],
+        "RMSE": metrics["RMSE"],
+        "MAE": metrics["MAE"],
+        "R2": metrics["R2"]
     }
 
-    # Convert experiment information into a DataFrame
-    experiment_df = pd.DataFrame([experiment])
+    new_result = pd.DataFrame([experiment])
 
-    # Check whether results.csv already exists
-    if results_path.exists():
-        experiment_df.to_csv(
+    if os.path.exists(results_path):
+        new_result.to_csv(
             results_path,
             mode="a",
             header=False,
             index=False
         )
     else:
-        experiment_df.to_csv(
+        new_result.to_csv(
             results_path,
             index=False
         )
 
-    print("Experiment results saved to:", results_path)
-    
-    
-    
-if __name__ == "__main__":
+    print("Experiment saved successfully.")
 
-    # Temporary values used only to test the experiment tracker
-    save_experiment(
-        feature="MedInc",
-        test_size=0.2,
-        learning_rate=0.01,
-        iterations=1000,
-        rmse=0.72,
-        mae=0.54,
-        r2=0.58
-    )
+
+if __name__ == "__main__":
+    print("experiment_tracker.py is working.")
